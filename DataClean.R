@@ -9,10 +9,10 @@ for (file in files){ #Loop through all files and merge into single formatted dat
   tmp = tmp %>% mutate_at(vars(Rk),funs(str_sub(file,end = -6))) #We don't need the game number, replace this with the team the data corresponds to
   tmp <- rename(tmp,Team = Rk) #Relabel column to reflect name data
   if (i == 0){
-    final = tmp2 #Initialize final data for data of first spreadsheet
+    final = tmp #Initialize final data for data of first spreadsheet
   }
   else{
-    final = bind_rows(final, tmp2) #For all subsequent spreadsheets, append formatted data to final dataframe
+    final = bind_rows(final, tmp) #For all subsequent spreadsheets, append formatted data to final dataframe
   }
   i = i + 1
 }
