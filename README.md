@@ -1,5 +1,5 @@
 # NHLStats
-A collection of R scripts that aim to clean, reformat, and analyze game data from the 2024-2025 NHL season.
+A collection of R and Python scripts that aim to clean, reformat, and analyze game data from the 2024-2025 NHL season. The end goal of this project is curently to attempt to make predictions for the 2025-2026 season.
 
 ## Data Sources
 The data in this repository currently consists of 32 Excel files, each containing the game-by-game stats of one NHL team from the 2024-2025 NHL season. All of these files were obtained directly from QuantHockey.com.
