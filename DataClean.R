@@ -26,4 +26,13 @@ for (name in names(final)){
 
 final =  mutate_at(final,vars(PDO,PDO_A,SH_PCT,SH_PCT_A,FO_PCT,SV_PCT,SV_PCT_A), funs(as.numeric(str_sub(.,end=-2))))
 
-write.table(final, "clean_data.csv", row.names = FALSE, col.names = FALSE)
+write.table(final, "clean_data.csv", row.names = FALSE, col.names = FALSE, sep=",") #This is the full clean data
+
+#To generate a dataset better to use in Python, we want only numbers
+final = final %>% mutate_at(vars(Loc.), funs(if_else(Loc. == "Home", 1, 0))) #Convert Home/Away to numerical values so we can use these in machine learning models
+
+final = final %>% mutate(Team = NULL, Date = NULL, Opponent = NULL, Result = NULL) #Remove all remaining string-valued columns
+
+final = final %>% select(GF, GA, GD, everything()) #Bring GF, GA, and GD to front of dataframe so we can easily split them from the rest of the data in Python
+
+write.table(final, "clean_data_trim.csv", row.names = FALSE, col.names = FALSE, sep=",") #This is the clean data with only numerical values, intended for use in Python
