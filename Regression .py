@@ -77,7 +77,29 @@ print(model_GD.predict(X[1485].reshape(20,1).T)) #Predicted GD (New York): -0.95
 #Here are the prediction for game 1 of the Stanley Cup Final (In Edmonton)
 scf_data = np.loadtxt('oiler_panther_scf.csv', delimiter = ',')
 
-#Loop through all 10000 sets of stats we generated)
+#Loop through all 20000 sets of stats we generated)
+W = 0
+L = 0
+T = 0
+for i in range(0,20000):
+    d = model_GD.predict(scf_data[i].reshape(20,1).T)
+    if (d > 0):
+        W += 1
+    elif(d < 0):
+        L += 1
+    else:
+        T += 1
+
+print("-----------------------------------------------------------------------")
+print("Based off all statistics:")    
+print(f"Oilers have predicted {W*100/20000}% chance to win.")
+print(f"Panthers have predicted {L*100/20000}% chance to win.")
+print(f"{T*100/20000}% of simulations were inconclusive.")
+
+#Running this simulation with the current simulated statistics gives the following projection:
+#The Oilers have a 50.48% chance of winning game 1.
+
+#First 10000 (Oilers Derived Stats)
 W = 0
 L = 0
 T = 0
@@ -89,7 +111,32 @@ for i in range(0,10000):
         L += 1
     else:
         T += 1
-        
+
+print("-----------------------------------------------------------------------")
+print("Based off Oilers' statistics:")  
 print(f"Oilers have predicted {W*100/10000}% chance to win.")
 print(f"Panthers have predicted {L*100/10000}% chance to win.")
 print(f"{T*100/10000}% of simulations were inconclusive.")
+
+#Oilers' statistics give Oilers the edge, with a 52.46% chance to win
+
+#Second 10000 (Panthers Derived Stats)
+W = 0
+L = 0
+T = 0
+for i in range(10000,20000):
+    d = model_GD.predict(scf_data[i].reshape(20,1).T)
+    if (d > 0):
+        W += 1
+    elif(d < 0):
+        L += 1
+    else:
+        T += 1
+
+print("-----------------------------------------------------------------------")
+print("Based off Panthers' statistics:")  
+print(f"Oilers have predicted {W*100/10000}% chance to win.")
+print(f"Panthers have predicted {L*100/10000}% chance to win.")
+print(f"{T*100/10000}% of simulations were inconclusive.")
+
+#Panthers' statistics give Panthers the edge with a 51.50% chance to win
