@@ -1,2 +1,3 @@
-﻿Game,Home Team,Away Team,Time of Simulation,Home Win%,Away Win%,Result
-Stanley Cup Finals Game 1,Edmonton Oilers,Florida Panthers,"June 3, 2025, 5:14PM",34.13%,65.87%,NOT PLAYED
+﻿Game,Regression.py Version,OilersPanthersDistributions.R Version,Home Team,Away Team,Time of Simulation,Home Win%,Away Win%,Result
+Stanley Cup Finals Game 1,0.1.1,0.1.0,Edmonton Oilers,Florida Panthers,"June 3, 2025, 5:14PM",34.13%,65.87%,NOT PLAYED
+Stanley Cup Finals Game 1,0.1.2,0.2.0,Edmonton Oilers,Florida Panthers,"June 3, 2025, 6:49PM",50.48%,49.52%,NOT PLAYED
